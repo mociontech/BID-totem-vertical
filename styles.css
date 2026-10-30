@@ -1,0 +1,37 @@
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #171717; }
+body { display: grid; place-items: center; font-family: Arial, sans-serif; }
+button { cursor: pointer; border: 0; padding: 0; color: inherit; font: inherit; touch-action: manipulation; }
+[hidden] { display: none !important; }
+#totem { width: min(100vw, 56.25dvh); aspect-ratio: 9 / 16; position: relative; overflow: hidden; background: white; isolation: isolate; }
+#home, #player, .cover, #video, #surface { position: absolute; inset: 0; width: 100%; height: 100%; }
+#home { background: white; }
+img { display: block; user-select: none; -webkit-user-drag: none; pointer-events: none; }
+.cover { object-fit: contain; }
+.start-prompt { position: absolute; left: 5.56%; top: 89.69%; width: 55.65%; }
+#video { object-fit: cover; background: white url('Images/Fondo_Blanco.png') center / cover; }
+#introFrame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#surface { background: transparent; }
+#instructions { position: absolute; width: 51.11%; left: 24.445%; top: 42.92%; z-index: 3; }
+#controls { position: absolute; right: 0; top: 31.69%; width: 11.204%; transform-origin: right center; }
+#controls > img { width: 100%; }
+.hotspots { position: absolute; inset: 0; display: grid; grid-template-rows: repeat(5, 1fr); }
+.hotspots button { position: relative; background: transparent; width: 100%; height: 100%; -webkit-tap-highlight-color: transparent; }
+.hotspots button img { position: absolute; width: var(--icon-width); height: auto; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.hotspots .icon-blue { visibility: hidden; }
+.hotspots button:is(:active, .is-pressed) .icon-white { visibility: hidden; }
+.hotspots button:is(:active, .is-pressed) .icon-blue { visibility: visible; }
+.hotspots button[data-playing="false"] .icon-pause,
+.hotspots button[data-playing="true"] .icon-play { display: none; }
+button:focus-visible { outline: 3px solid #005fff; outline-offset: -3px; }
+#timeline { position: absolute; bottom: 0; left: 0; width: 100%; height: 8.28125%; background: transparent url('Images/Fondo_Barra.png') center / 100% 100% no-repeat; transform-origin: center bottom; }
+.track { position: absolute; left: 3.704%; right: 5.926%; top: 52.2%; height: 7.55%; transform: translateY(-50%); }
+.track-base, #progress, #progress img { width: 100%; height: 100%; position: absolute; inset: 0; }
+#progress { width: 0%; overflow: hidden; border-radius: 99px; }
+#point { position: absolute; left: 0%; top: 50%; width: 2.36%; aspect-ratio: 1; transform: translate(-50%, -50%); }
+#seek { position: absolute; width: 100%; height: 500%; left: 0; top: 50%; transform: translateY(-50%); margin: 0; opacity: 0; cursor: pointer; touch-action: none; }
+.track:focus-within { outline: 2px solid white; outline-offset: 8px; }
+#notice { position: absolute; left: 15%; right: 15%; top: 63%; padding: 16px; border-radius: 12px; background: #141414; color: white; font-size: clamp(12px, 2vh, 24px); }
+.breathe { animation: breathe 1.8s ease-in-out infinite; }
+@keyframes breathe { 0%, 100% { scale: 1; } 50% { scale: 1.035; } }
+@media (prefers-reduced-motion: reduce) { .breathe { animation: none; } }

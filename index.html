@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tools to Enhance Execution Viability — Tótem</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="totem" aria-label="Reproductor interactivo">
+    <button id="home" aria-label="Toca para comenzar">
+      <img class="cover" src="Images/Pantalla_Principal.png" alt="Tools to Enhance Execution Viability" draggable="false">
+      <img class="start-prompt breathe" src="Images/TocaParaComenzar.png" alt="" draggable="false">
+    </button>
+    <section id="player" aria-label="Video" hidden>
+      <video id="video" src="Images/Video.mp4" preload="auto" playsinline disablepictureinpicture></video>
+      <img id="introFrame" src="Images/Video_Indicaciones.jpg" alt="" draggable="false" hidden>
+      <button id="surface" aria-label="Mostrar u ocultar controles"></button>
+      <img id="instructions" src="Images/Indicaciones.png" alt="Toca la pantalla para controlar el video a tu ritmo." draggable="false" hidden>
+      <nav id="controls" aria-label="Controles de video" hidden>
+        <img src="Images/Fondo_Controles.png" alt="" draggable="false">
+        <div class="hotspots">
+          <button data-action="restart" aria-label="Reiniciar video" style="--icon-width: 73.554%">
+            <img class="icon-white" src="Images/Reboot.png" alt="">
+            <img class="icon-blue" src="Images/Reboot_Azul.png" alt="">
+          </button>
+          <button data-action="back" aria-label="Retroceder 10 segundos" style="--icon-width: 43.802%">
+            <img class="icon-white" src="Images/Menos10.png" alt="">
+            <img class="icon-blue" src="Images/Menos10_Azul.png" alt="">
+          </button>
+          <button data-action="toggle" data-playing="false" aria-label="Reproducir video" style="--icon-width: 62.81%">
+            <img class="icon-white icon-play" src="Images/Start.png" alt="">
+            <img class="icon-blue icon-play" src="Images/Start_Azul%20.png" alt="">
+            <img class="icon-white icon-pause" src="Images/Pause.png" alt="">
+            <img class="icon-blue icon-pause" src="Images/Pause_Azul%20.png" alt="">
+          </button>
+          <button data-action="forward" aria-label="Adelantar 10 segundos" style="--icon-width: 42.975%">
+            <img class="icon-white" src="Images/Mas10.png" alt="">
+            <img class="icon-blue" src="Images/Mas10_Azul%20.png" alt="">
+          </button>
+          <button data-action="home" aria-label="Regresar a la pantalla principal" style="--icon-width: 73.554%">
+            <img class="icon-white" src="Images/Back.png" alt="">
+            <img class="icon-blue" src="Images/Back_Azul%20.png" alt="">
+          </button>
+        </div>
+      </nav>
+      <div id="timeline" hidden>
+        <div class="track">
+          <img class="track-base" src="Images/Barra_2.png" alt="" draggable="false">
+          <div id="progress"><img src="Images/Barra_1.png" alt="" draggable="false"></div>
+          <img id="point" src="Images/Punto.png" alt="" draggable="false">
+          <input id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Posición del video">
+        </div>
+      </div>
+      <button id="notice" role="status" hidden></button>
+    </section>
+  </main>
+  <script src="player.js"></script>
+</body>
+</html>
